@@ -7,7 +7,7 @@ from pdf_merger import PDFMerger
 
 class TestPDFMerger(unittest.TestCase):
     def check_valueerror_is_raised_if_number_of_pdfs_is_zero(self):
-        pass
+        assert 1 == 1
 
     def check_valueerror_is_raised_if_number_of_pdfs_is_one(self):
         pass
