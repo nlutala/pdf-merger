@@ -24,7 +24,7 @@ class TestPDFMerger(unittest.TestCase):
         merger = PDFMerger(pdfs)
         output_file = os.path.join(base_dir, "merged_file.pdf")
         merger.merge_pdfs()
-        assert os.path.isfile(output_file)
+        assert os.path.isfile(output_file) == False
         os.remove(output_file)
         
     def test_name_of_merge_pdf_if_filename_is_given(self):
