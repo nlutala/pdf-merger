@@ -48,6 +48,6 @@ if __name__ == "__main__":
 
     merger = PDFMerger(pdfs)
 
-    filename = input("Please enter the name you would like to call the new merged PDF file. \n(If this is left empty, the name of the new pdf file generated will be 'merged-file.pdf'): ")
+    filename = input("Please enter the name you would like to call the new merged PDF file. \n(If this is left empty, the name of the new pdf file generated will be 'merged_file.pdf'): ")
 
     merger.merge_pdfs(filename)
