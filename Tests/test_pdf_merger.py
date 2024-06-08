@@ -19,25 +19,31 @@ class TestPDFMerger(unittest.TestCase):
             merger = PDFMerger(pdfs)
 
     def test_name_of_merge_pdf_if_no_filename_is_given(self):
-        pdfs = ["example_file_1.pdf", "example_file_2.pdf"]
+        base_dir = os.path.dirname(__file__)
+        pdfs = [os.path.join(base_dir, "example_file_1.pdf"), os.path.join(base_dir, "example_file_2.pdf")]
         merger = PDFMerger(pdfs)
+        output_file = os.path.join(base_dir, "merged-file.pdf")
         merger.merge_pdfs()
-        assert "merged-file.pdf" in os.listdir()
-        os.remove("merged-file.pdf")
-
+        assert os.path.isfile(output_file)
+        os.remove(output_file)
+        
     def test_name_of_merge_pdf_if_filename_is_given(self):
-        pdfs = ["example_file_1.pdf", "example_file_2.pdf"]
+        base_dir = os.path.dirname(__file__)
+        pdfs = [os.path.join(base_dir, "example_file_1.pdf"), os.path.join(base_dir, "example_file_2.pdf")]
         merger = PDFMerger(pdfs)
-        merger.merge_pdfs("merged_example_file.pdf")
-        assert "merged_example_file.pdf" in os.listdir()
-        os.remove("merged_example_file.pdf")
+        output_file = os.path.join(base_dir, "merged_example_file.pdf")
+        merger.merge_pdfs(output_file)
+        assert os.path.isfile(output_file)
+        os.remove(output_file)
 
     def test_number_of_pages_for_the_merged_pdf(self):
-        pdfs = ["example_file_1.pdf", "example_file_2.pdf"]
+        base_dir = os.path.dirname(__file__)
+        pdfs = [os.path.join(base_dir, "example_file_1.pdf"), os.path.join(base_dir, "example_file_2.pdf")]
         merger = PDFMerger(pdfs)
-        merger.merge_pdfs("merged_new_example_file.pdf")
-        file1_num_pages = PdfReader("example_file_1.pdf").get_num_pages()
-        file2_num_pages = PdfReader("example_file_2.pdf").get_num_pages()
-        merged_file_num_pages = PdfReader("merged_new_example_file.pdf").get_num_pages()
+        output_file = os.path.join(base_dir, "merged_new_example_file.pdf")
+        merger.merge_pdfs(output_file)
+        file1_num_pages = PdfReader(pdfs[0]).get_num_pages()
+        file2_num_pages = PdfReader(pdfs[1]).get_num_pages()
+        merged_file_num_pages = PdfReader(output_file).get_num_pages()
         assert file1_num_pages + file2_num_pages == merged_file_num_pages
-        os.remove("merged_new_example_file.pdf")
+        os.remove(output_file)
