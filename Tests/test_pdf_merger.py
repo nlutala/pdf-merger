@@ -28,6 +28,7 @@ class TestPDFMerger(unittest.TestCase):
         # To remove, but just for logging
         print("Current directory:", base_dir)
         print("Directory contents:", os.listdir(base_dir))
+        print("Expected output file:", output_file)
         
         assert os.path.isfile(output_file)
         os.remove(output_file)
