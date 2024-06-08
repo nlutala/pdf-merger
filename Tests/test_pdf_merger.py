@@ -24,6 +24,11 @@ class TestPDFMerger(unittest.TestCase):
         merger = PDFMerger(pdfs)
         output_file = os.path.join(base_dir, "merged-file.pdf")
         merger.merge_pdfs()
+        
+        # To remove, but just for logging
+        print("Current directory:", base_dir)
+        print("Directory contents:", os.listdir(base_dir))
+        
         assert os.path.isfile(output_file)
         os.remove(output_file)
         
