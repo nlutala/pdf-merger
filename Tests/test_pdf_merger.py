@@ -27,17 +27,17 @@ class TestPDFMerger(unittest.TestCase):
 
     def test_name_of_merge_pdf_if_filename_is_given(self):
         pdfs = ["example_file_1.pdf", "example_file_2.pdf"]
-        merger = PDFMerger(pdfs, "merged_example_file.pdf")
-        merger.merge_pdfs()
+        merger = PDFMerger(pdfs)
+        merger.merge_pdfs("merged_example_file.pdf")
         assert "merged_example_file.pdf" in os.listdir()
         os.remove("merged_example_file.pdf")
 
     def test_number_of_pages_for_the_merged_pdf(self):
         pdfs = ["example_file_1.pdf", "example_file_2.pdf"]
-        merger = PDFMerger(pdfs, "merged_example_file.pdf")
-        merger.merge_pdfs()
+        merger = PDFMerger(pdfs)
+        merger.merge_pdfs("merged_new_example_file.pdf")
         file1_num_pages = PdfReader("example_file_1.pdf").get_num_pages()
         file2_num_pages = PdfReader("example_file_2.pdf").get_num_pages()
-        merged_file_num_pages = PdfReader("merged_example_file.pdf").get_num_pages()
+        merged_file_num_pages = PdfReader("merged_new_example_file.pdf").get_num_pages()
         assert file1_num_pages + file2_num_pages == merged_file_num_pages
-        os.remove("merged_example_file.pdf")
+        os.remove("merged_new_example_file.pdf")
