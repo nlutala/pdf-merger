@@ -20,7 +20,7 @@ class PDFMerger():
 
         self.merger = PdfWriter()
 
-    def merge_pdfs(self, filename="merged_file") -> None:
+    def merge_pdfs(self, filename="merged_file.pdf") -> None:
         '''
         Params:
         filename (str) - a name for the new merged pdf
