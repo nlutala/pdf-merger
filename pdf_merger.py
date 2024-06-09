@@ -81,7 +81,7 @@ class PDFMerger():
         filename (str) - a name for the new merged pdf
         '''
         # Create the file
-        if len(filename) == 0:
+        if len(filename.strip()) == 0:
             filename = "merged_file.pdf"
         
         for pdf in self.pdfs:
