@@ -16,7 +16,9 @@ This program was created to help me build on object-oriented programming concept
 * Now you should have all the required libraries to run the project
 
 ### Before executing the program
-Ensure you have 2 or more PDF files in the directory the pdf_merger.py file is in.
+Ensure you have 2 or more PDF files in the directory the pdf_merger.py file is in (see example below). 
+![pdf_merger_9](https://github.com/nlutala/pdf-merger/assets/87072306/b2722931-d504-439c-bf2c-9bd28a82853d)
+
 It doesn't matter if you don't as the script is written to handle for these cases (see below)
 ![pdf_merger_1](https://github.com/nlutala/pdf-merger/assets/87072306/2a62ba5c-cf4a-414c-a67a-d04d6a744b06)
 
